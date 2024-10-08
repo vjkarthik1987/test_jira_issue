@@ -28,10 +28,21 @@ app.post('/create-ticket', async (req, res) => {
     fields: {
       project: { key: 'SSP' },
       summary: title,
-      description: description,
+      description: {
+        type: "doc",
+        version: 1,
+        content: [
+          {
+            type: "paragraph",
+            content: [
+              { type: "text", text: description }
+            ]
+          }
+        ]
+      },
       issuetype: { name: 'Task' }
     }
-  };
+  };  
 
   try {
     const auth = Buffer.from(`${process.env.JIRA_EMAIL}:${process.env.JIRA_API_TOKEN}`).toString('base64');
