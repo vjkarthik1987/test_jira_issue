@@ -26,10 +26,10 @@ app.post('/create-ticket', async (req, res) => {
   const { title, description } = req.body;
   const jiraIssue = {
     fields: {
-      project: { key: 'SSP' }, 
+      project: { key: 'SSP' },
       summary: title,
       description: description,
-      issuetype: { name: 'Functional Component' }
+      issuetype: { name: 'Task' }
     }
   };
 
@@ -44,10 +44,11 @@ app.post('/create-ticket', async (req, res) => {
       body: JSON.stringify(jiraIssue),
     });
     const data = await response.json();
+    console.log(data);
 
     // Store the ticket information (for display purposes)
     ticketStore[data.key] = { title, description, status: 'Created' };
-    alert(data);
+    
 
     res.send(`Ticket created with JIRA Key: ${data.key}`);
   } catch (error) {
