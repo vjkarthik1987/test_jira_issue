@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 require('dotenv').config(); // Load environment variables from .env
+const port = process.env.PORT || 4000;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -75,4 +76,4 @@ app.get('/tickets', (req, res) => {
   res.send(`<ul>${ticketList}</ul>`);
 });
 
-app.listen(3000, () => console.log('Server is running on http://localhost:3000'));
+app.listen(port, () => console.log('Server is running'));
