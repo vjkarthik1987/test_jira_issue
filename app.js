@@ -40,7 +40,11 @@ app.post('/create-ticket', async (req, res) => {
           }
         ]
       },
-      issuetype: { name: 'Functional Component' }
+      issuetype: { name: 'Functional Component' },
+      customfield_10195: 'New Work Item which is not Considered in Baselined Core Service Design',
+      customfield_10190: 'Business Process',
+      customfield_10192: 'Random Text',
+      customfield_10193: 'Platform'
     }
   };  
 
