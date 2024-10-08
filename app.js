@@ -40,7 +40,7 @@ app.post('/create-ticket', async (req, res) => {
           }
         ]
       },
-      issuetype: { name: 'Task' }
+      issuetype: { name: 'Functional Component' }
     }
   };  
 
