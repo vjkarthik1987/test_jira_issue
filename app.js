@@ -26,7 +26,7 @@ app.post('/create-ticket', async (req, res) => {
   const { title, description } = req.body;
   const jiraIssue = {
     fields: {
-      project: { key: 'SSP' },
+      project: { key: 'SIR' },
       summary: title,
       description: {
         type: "doc",
@@ -40,11 +40,7 @@ app.post('/create-ticket', async (req, res) => {
           }
         ]
       },
-      issuetype: { name: 'Functional Component' },
-      customfield_10195: 'New Work Item which is not Considered in Baselined Core Service Design',
-      customfield_10190: 'Business Process',
-      customfield_10192: 'Random Text',
-      customfield_10193: 'Platform'
+      issuetype: { name: 'Action' },
     }
   };  
 
